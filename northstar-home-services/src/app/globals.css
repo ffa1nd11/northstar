@@ -1,6 +1,9 @@
-﻿node -e '
+﻿@'
 const fs = require("fs");
 const css = `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --navy: #10263f;
   --ink: #091827;
@@ -526,3 +529,6 @@ body {
     display: inline-flex;
   }
 }
+`;
+fs.writeFileSync("src/app/globals.css", css, "utf8");
+'@ | Set-Content -Path .\_write_css.js -Encoding UTF8; node .\_write_css.js; Remove-Item .\_write_css.js
